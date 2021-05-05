@@ -12,15 +12,15 @@
 .NominationItem .button > button {
   background-color: transparent;
   height: 40px;
-  border: 3px solid white;
+  border: 3px solid rgb(241, 135, 135);
   border-radius: 10px;
-  color: white;
+  color: rgb(241, 135, 135);
   font-weight: bold;
   width: 80px;
   cursor: pointer;
 }
 
 .NominationItem .button > button:hover {
-  border-color: #96bf48;
-  color: #96bf48;
+  background-color: rgb(241, 135, 135);
+  color: white;
 }

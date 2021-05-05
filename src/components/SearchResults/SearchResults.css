@@ -1,14 +1,15 @@
 .SearchResults {
   width: 90%;
-  height: 80vh;
+  height: 65vh;
   background-color: #52515b;
   border-radius: 20px;
   margin: 20px auto;
   overflow-y: scroll;
 }
 
-/* @media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   .SearchResults {
-    width: 50%;
+    height: 80vh;
+    /* width: 50%; */
   }
-} */
+}
