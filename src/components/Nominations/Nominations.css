@@ -1,0 +1,21 @@
+.Nominations {
+  width: 90%;
+  height: 88vh;
+  background-color: #52515b;
+  border-radius: 20px;
+  margin: 0px 20px;
+  overflow-y: scroll;
+  color: white;
+}
+
+.Nominations .header {
+  text-align: center;
+  border-bottom: 1px solid #3a3a41;
+  padding-bottom: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .Nominations {
+    width: 50%;
+  }
+}

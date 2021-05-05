@@ -1,0 +1,16 @@
+.Header {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Header .title {
+  font-style: italic;
+  color: white;
+  margin: 0px;
+}
+
+.Header .trophy {
+  color: #96bf48;
+}
