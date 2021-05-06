@@ -6,71 +6,40 @@ import Nominations from "./components/Nominations/Nominations";
 import SearchBar from "./components/SearchBar/SearchBar";
 import SearchResults from "./components/SearchResults/SearchResults";
 import MobileFooter from "./components/MobileFooter/MobileFooter";
-let movies = [
-  { name: "Movie1", year: 1998, id: 1 },
-  { name: "Movie2", year: 1928, id: 2 },
-  { name: "Movie3", year: 1988, id: 3 },
-  { name: "Movie4", year: 2001, id: 4 },
-];
 
 function App() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const [showNominations, setShowNominations] = useState(false);
   const [nominations, setNominations] = useState([]);
   const [movies, setMovies] = useState([]);
-
-  function removeNomination(id) {
-    setNominations(nominations.filter((movie) => movie.id !== id));
-  }
-
-  function addNomination(movie) {
-    setNominations([...nominations, movie]);
-  }
+  const [totalResults, setTotalResults] = useState(null);
+  const [searchError, setSearchError] = useState(null);
 
   return (
     <div className="App">
-      {isMobile ? (
-        <>
-          <Header />
-          <div className="content">
-            <div className="search">
-              <SearchBar setMovies={setMovies} />
-              <SearchResults
-                movies={movies}
-                setShowNominations={setShowNominations}
-                nominations={nominations}
-                setNominations={setNominations}
-              />
-            </div>
-            {showNominations && (
-              <Nominations
-                nominations={nominations}
-                setNominations={setNominations}
-              />
-            )}
-            <MobileFooter setShowNominations={setShowNominations} />
-          </div>
-        </>
-      ) : (
-        <>
-          <Header />
-          <div className="content">
-            <div className="search">
-              <SearchBar setMovies={setMovies} />
-              <SearchResults
-                movies={movies}
-                setShowNominations={setShowNominations}
-                nominations={nominations}
-                setNominations={setNominations}
-              />
-            </div>
-            <Nominations
-              nominations={nominations}
-              setNominations={setNominations}
-            />
-          </div>
-        </>
-      )}
+      <Header />
+      <div className="content">
+        <div className="search">
+          <SearchBar
+            setMovies={setMovies}
+            setTotalResults={setTotalResults}
+            setSearchError={setSearchError}
+          />
+          <SearchResults
+            movies={movies}
+            setShowNominations={setShowNominations}
+            nominations={nominations}
+            setNominations={setNominations}
+            totalResults={totalResults}
+            searchError={searchError}
+          />
+        </div>
+        <Nominations
+          nominations={nominations}
+          setNominations={setNominations}
+        />
+        {isMobile && <MobileFooter setShowNominations={setShowNominations} />}
+      </div>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./SearchBar.css";
 
-function SearchBar({ setMovies }) {
+function SearchBar({ setMovies, setTotalResults, setSearchError }) {
   const [input, setInput] = useState("");
   const BASE_URL = "http://www.omdbapi.com/?apikey=a6e00c90";
 
@@ -12,9 +12,18 @@ function SearchBar({ setMovies }) {
       let response = await fetch(
         `${BASE_URL}&s=${input}&type=movie&page=1`
       ).then((res) => res.json());
-      setMovies(response.Search);
-      console.log("movies:", response);
-    } catch (error) {}
+      console.log(response);
+      if (response.Response == "True") {
+        setMovies(response.Search);
+        setTotalResults(response.totalResults);
+      } else {
+        setMovies(null);
+        setTotalResults(null);
+        setSearchError(response.Error);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <form className="SearchBar" onSubmit={findMovies}>
