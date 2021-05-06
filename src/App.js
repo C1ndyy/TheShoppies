@@ -38,6 +38,8 @@ function App() {
               <SearchResults
                 movies={movies}
                 setShowNominations={setShowNominations}
+                nominations={nominations}
+                setNominations={setNominations}
               />
             </div>
             {showNominations && (
@@ -58,6 +60,8 @@ function App() {
               <SearchResults
                 movies={movies}
                 setShowNominations={setShowNominations}
+                nominations={nominations}
+                setNominations={setNominations}
               />
             </div>
             <Nominations

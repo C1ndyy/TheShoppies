@@ -2,13 +2,13 @@ import React from "react";
 import NominationItem from "../NominationItem/NominationItem";
 import "./Nominations.css";
 
-function Nominations() {
+function Nominations({ nominations, setNominations }) {
   return (
     <div className="Nominations">
       <h2 className="header">My Nominations</h2>
-      <NominationItem />
-      <NominationItem />
-      <NominationItem />
+      {nominations.map((movie) => (
+        <NominationItem movie={movie} />
+      ))}
     </div>
   );
 }

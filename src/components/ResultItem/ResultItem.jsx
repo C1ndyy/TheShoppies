@@ -1,7 +1,11 @@
 import React from "react";
+import Nominations from "../Nominations/Nominations";
 import "./ResultItem.css";
 
-function ResultItem({ movie }) {
+function ResultItem({ movie, nominations, setNominations }) {
+  function nominateMovie() {
+    setNominations([...nominations, movie]);
+  }
   return (
     <div className="ResultItem">
       <div className="poster">
@@ -12,7 +16,7 @@ function ResultItem({ movie }) {
         <h6>{movie.Year}</h6>
       </div>
       <div className="button">
-        <button>Nominate</button>
+        <button onClick={nominateMovie}>Nominate</button>
       </div>
     </div>
   );
