@@ -7,7 +7,12 @@ function Nominations({ nominations, setNominations }) {
     <div className="Nominations">
       <h2 className="header">My Nominations</h2>
       {nominations.map((movie) => (
-        <NominationItem movie={movie} />
+        <NominationItem
+          key={movie.imdbID}
+          movie={movie}
+          nominations={nominations}
+          setNominations={setNominations}
+        />
       ))}
     </div>
   );

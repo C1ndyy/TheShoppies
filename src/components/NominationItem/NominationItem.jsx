@@ -1,7 +1,11 @@
 import React from "react";
 import "./NominationItem.css";
 
-function NominationItem({ movie }) {
+function NominationItem({ movie, setNominations, nominations }) {
+  const movieId = movie.imdbID;
+  function removeMovie() {
+    setNominations(nominations.filter((movie) => movie.imdbID !== movieId));
+  }
   return (
     <div className="NominationItem">
       <div className="poster">
@@ -12,7 +16,7 @@ function NominationItem({ movie }) {
         <h6>{movie.Year}</h6>
       </div>
       <div className="button">
-        <button>Remove</button>
+        <button onClick={removeMovie}>Remove</button>
       </div>
     </div>
   );
