@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./SearchBar.css";
 
-function SearchBar() {
+function SearchBar({ setMovies }) {
   const [input, setInput] = useState("");
   const BASE_URL = "http://www.omdbapi.com/?apikey=a6e00c90";
 
@@ -9,9 +9,11 @@ function SearchBar() {
     e.preventDefault();
 
     try {
-      let response = await fetch(`${BASE_URL}&s=${input}&type=movie&page=1`);
-      let movies = await response.json();
-      console.log("movies:", movies);
+      let response = await fetch(
+        `${BASE_URL}&s=${input}&type=movie&page=1`
+      ).then((res) => res.json());
+      setMovies(response.Search);
+      console.log("movies:", response);
     } catch (error) {}
   }
   return (

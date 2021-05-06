@@ -2,12 +2,12 @@ import React from "react";
 import ResultItem from "../ResultItem/ResultItem";
 import "./SearchResults.css";
 
-function SearchResults() {
+function SearchResults({ movies }) {
   return (
     <div className="SearchResults">
-      <ResultItem />
-      <ResultItem />
-      <ResultItem />
+      {movies.map((movie) => (
+        <ResultItem key={movie.imdbID} movie={movie} />
+      ))}
     </div>
   );
 }

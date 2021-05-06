@@ -17,6 +17,7 @@ function App() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const [showNominations, setShowNominations] = useState(false);
   const [nominations, setNominations] = useState([]);
+  const [movies, setMovies] = useState([]);
 
   function removeNomination(id) {
     setNominations(nominations.filter((movie) => movie.id !== id));
@@ -33,8 +34,11 @@ function App() {
           <Header />
           <div className="content">
             <div className="search">
-              <SearchBar />
-              <SearchResults setShowNominations={setShowNominations} />
+              <SearchBar setMovies={setMovies} />
+              <SearchResults
+                movies={movies}
+                setShowNominations={setShowNominations}
+              />
             </div>
             {showNominations && (
               <Nominations
@@ -50,8 +54,11 @@ function App() {
           <Header />
           <div className="content">
             <div className="search">
-              <SearchBar />
-              <SearchResults setShowNominations={setShowNominations} />
+              <SearchBar setMovies={setMovies} />
+              <SearchResults
+                movies={movies}
+                setShowNominations={setShowNominations}
+              />
             </div>
             <Nominations
               nominations={nominations}
