@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
+import ReactPaginate from "react-paginate";
+import { findMovies } from "../../utils/api";
 import "./SearchBar.css";
 
-function SearchBar({ setMovies, setTotalResults, setSearchError }) {
-  const [input, setInput] = useState("");
-  const BASE_URL = "http://www.omdbapi.com/?apikey=a6e00c90";
-
-  async function findMovies(e) {
+function SearchBar({
+  setMovies,
+  setTotalResults,
+  setSearchError,
+  input,
+  setInput,
+}) {
+  async function handleSubmit(e, pageNo) {
     e.preventDefault();
-
     try {
-      let response = await fetch(
-        `${BASE_URL}&s=${input}&type=movie&page=1`
-      ).then((res) => res.json());
-      console.log(response);
+      let response = await findMovies(input, pageNo);
       if (response.Response == "True") {
         setMovies(response.Search);
         setTotalResults(response.totalResults);
@@ -25,18 +26,21 @@ function SearchBar({ setMovies, setTotalResults, setSearchError }) {
       console.log(error);
     }
   }
+
   return (
-    <form className="SearchBar" onSubmit={findMovies}>
-      <input
-        type="text"
-        placeholder="search movies.."
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-      />
-      <button>
-        <span className="material-icons">search</span>
-      </button>
-    </form>
+    <>
+      <form className="SearchBar" onSubmit={(e) => handleSubmit(e, 1)}>
+        <input
+          type="text"
+          placeholder="search movies.."
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
+        <button>
+          <span className="material-icons">search</span>
+        </button>
+      </form>
+    </>
   );
 }
 

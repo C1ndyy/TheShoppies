@@ -5,6 +5,34 @@
   max-height: 100vh;
   overflow-y: hidden;
 }
+.App .search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App .pagination {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  color: white;
+  margin: auto;
+  padding: 0px;
+}
+
+.App .pagination li {
+  margin: 0px 10px;
+  cursor: pointer;
+}
+
+.App .pagination li:hover {
+  font-weight: bold;
+}
+
+.App .pagination li.active a {
+  color: greenyellow;
+  font-weight: bold;
+}
 
 @media only screen and (min-width: 768px) {
   .App .content {
