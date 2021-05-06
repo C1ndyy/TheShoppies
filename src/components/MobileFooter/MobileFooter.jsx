@@ -1,10 +1,18 @@
 import React from "react";
 import "./MobileFooter.css";
 
-function MobileFooter() {
+function MobileFooter({ showNominations, setShowNominations }) {
+  function toggleNominations() {
+    setShowNominations(!showNominations);
+  }
   return (
     <div className="MobileFooter">
-      <button>View My Nominations</button>
+      <button
+        className={`${showNominations && "red"}`}
+        onClick={toggleNominations}
+      >
+        {showNominations ? "Hide My Nominations" : "View My Nominations"}
+      </button>
     </div>
   );
 }

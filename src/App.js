@@ -12,7 +12,7 @@ import { findMovies } from "./utils/api";
 
 function App() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
-  const [showNominations, setShowNominations] = useState(false);
+  const [showNominations, setShowNominations] = useState(true);
   const [nominations, setNominations] = useState([]);
   const [movies, setMovies] = useState([]);
   const [totalResults, setTotalResults] = useState(null);
@@ -67,8 +67,14 @@ function App() {
         <Nominations
           nominations={nominations}
           setNominations={setNominations}
+          showNominations={showNominations}
         />
-        {isMobile && <MobileFooter setShowNominations={setShowNominations} />}
+        {isMobile && (
+          <MobileFooter
+            setShowNominations={setShowNominations}
+            showNominations={showNominations}
+          />
+        )}
       </div>
     </div>
   );

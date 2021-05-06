@@ -6,6 +6,15 @@
   margin: 0px 20px;
   overflow-y: scroll;
   color: white;
+  z-index: 10;
+  position: absolute;
+  top: 20px;
+  transition: 0.5s;
+}
+
+.Nominations.hidden {
+  top: 900px;
+  transition: 0.5s;
 }
 
 .Nominations .header {
@@ -17,5 +26,7 @@
 @media only screen and (min-width: 768px) {
   .Nominations {
     width: 50%;
+    height: 78vh;
+    position: static;
   }
 }
