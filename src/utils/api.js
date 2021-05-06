@@ -5,7 +5,6 @@ export async function findMovies(input, pageNo) {
     let response = await fetch(
       `${BASE_URL}&s=${input}&type=movie&page=${pageNo}`
     ).then((res) => res.json());
-    console.log(response);
     return response;
   } catch (error) {
     console.log(error);
