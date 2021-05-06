@@ -15,8 +15,16 @@ function ResultItem({ movie, nominations, setNominations }) {
         <h4>{movie.Title}</h4>
         <h6>{movie.Year}</h6>
       </div>
-      <div className="button">
-        <button onClick={nominateMovie}>Nominate</button>
+      <div>
+        {nominations.indexOf(movie) === -1 ? (
+          <button className="button active" onClick={nominateMovie}>
+            Nominate
+          </button>
+        ) : (
+          <button className="button disabled" disabled>
+            Nominated
+          </button>
+        )}
       </div>
     </div>
   );
