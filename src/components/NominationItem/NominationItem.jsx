@@ -12,7 +12,7 @@ function NominationItem({ movie, setNominations, nominations }) {
         {movie.Poster !== "N/A" && <img src={movie.Poster} />}
       </div>
       <div className="info">
-        <h4>{movie.Title}</h4>
+        <h5>{movie.Title}</h5>
         <h6>{movie.Year}</h6>
       </div>
       <div className="button">

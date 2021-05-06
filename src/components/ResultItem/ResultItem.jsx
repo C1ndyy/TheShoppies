@@ -12,12 +12,16 @@ function ResultItem({ movie, nominations, setNominations }) {
         {movie.Poster !== "N/A" && <img src={movie.Poster} />}
       </div>
       <div className="info">
-        <h4>{movie.Title}</h4>
+        <h5>{movie.Title}</h5>
         <h6>{movie.Year}</h6>
       </div>
       <div>
         {nominations.indexOf(movie) === -1 ? (
-          <button className="button active" onClick={nominateMovie}>
+          <button
+            className="button active"
+            disabled={nominations.length === 5}
+            onClick={nominateMovie}
+          >
             Nominate
           </button>
         ) : (

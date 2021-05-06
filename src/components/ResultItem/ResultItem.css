@@ -5,7 +5,8 @@
   justify-content: flex-start;
   align-items: center;
   color: white;
-  margin: 20px;
+  margin: 10px 20px;
+  padding-bottom: 10px;
   border-bottom: 1px solid #3a3a41;
   position: relative;
 }
@@ -22,7 +23,15 @@
   max-height: 80px;
 }
 .ResultItem .info {
-  width: 49%;
+  width: 45%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-self: space-between;
+}
+.ResultItem .info > h5,
+h6 {
+  margin: 5px 0px;
 }
 .ResultItem .button {
   background-color: transparent;

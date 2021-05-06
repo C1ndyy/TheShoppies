@@ -6,6 +6,7 @@ import Nominations from "./components/Nominations/Nominations";
 import SearchBar from "./components/SearchBar/SearchBar";
 import SearchResults from "./components/SearchResults/SearchResults";
 import MobileFooter from "./components/MobileFooter/MobileFooter";
+import Banner from "./components/Banner/Banner";
 
 function App() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <div className="App">
+      <Banner nominations={nominations} />
       <Header />
       <div className="content">
         <div className="search">
