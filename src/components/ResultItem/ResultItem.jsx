@@ -15,7 +15,6 @@ function ResultItem({ movie, nominations, setNominations }) {
 
   useEffect(() => {
     if (alreadyNominated(movie)) {
-      console.log(movie, "already nominated");
       setNominated(true);
     }
   }, []);
