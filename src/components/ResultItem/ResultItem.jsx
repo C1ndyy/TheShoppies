@@ -1,11 +1,25 @@
-import React from "react";
-import Nominations from "../Nominations/Nominations";
+import React, { useState, useEffect } from "react";
 import "./ResultItem.css";
 
 function ResultItem({ movie, nominations, setNominations }) {
+  const [nominated, setNominated] = useState(false);
+
   function nominateMovie() {
     setNominations([...nominations, movie]);
+    setNominated(true);
   }
+
+  function alreadyNominated(movie) {
+    return nominations.some((nomination) => nomination.imdbID === movie.imdbID);
+  }
+
+  useEffect(() => {
+    if (alreadyNominated(movie)) {
+      console.log(movie, "already nominated");
+      setNominated(true);
+    }
+  }, []);
+
   return (
     <div className="ResultItem">
       <div className="poster">
@@ -16,7 +30,7 @@ function ResultItem({ movie, nominations, setNominations }) {
         <h6>{movie.Year}</h6>
       </div>
       <div>
-        {nominations.indexOf(movie) === -1 ? (
+        {!nominated ? (
           <button
             className="button active"
             disabled={nominations.length === 5}

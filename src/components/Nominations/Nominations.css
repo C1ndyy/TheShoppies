@@ -13,6 +13,7 @@
 }
 
 .Nominations.hidden {
+  height: 0px;
   top: 900px;
   transition: 0.5s;
 }
