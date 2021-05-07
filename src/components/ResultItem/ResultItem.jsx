@@ -16,8 +16,10 @@ function ResultItem({ movie, nominations, setNominations }) {
   useEffect(() => {
     if (alreadyNominated(movie)) {
       setNominated(true);
+    } else {
+      setNominated(false);
     }
-  }, []);
+  }, [nominations]);
 
   return (
     <div className="ResultItem">

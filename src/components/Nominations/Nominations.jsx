@@ -18,6 +18,12 @@ function Nominations({ nominations, setNominations, showNominations }) {
           setNominations={setNominations}
         />
       ))}
+      {nominations.length === 0 && (
+        <div className="no-nominations">
+          <h3>No nominations yet!</h3>
+          <h4>Start by searching for a movie</h4>
+        </div>
+      )}
     </div>
   );
 }
