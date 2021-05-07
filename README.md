@@ -2,6 +2,8 @@
 
 Desgined and Created by Cindy Xu using React and OMDB API
 
+Check out the deployed app [here!](https://c1ndyy.github.io/TheShoppies/)
+
 ## Demo
 
 ![Demo](./demo/demo.gif)
