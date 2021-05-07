@@ -15,3 +15,11 @@ Check out the deployed app [here!](https://c1ndyy.github.io/TheShoppies/)
 - Nominate movies and remove nominated movies
 - pagination on search results for faster fetching
 - Maximum 5 nominations. A movie can only be nominated once.
+
+## Technology Used
+
+- React
+- OMDB API
+- react-responsive
+- react-paginate
+- GH Pages
